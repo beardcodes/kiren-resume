@@ -10,18 +10,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --deep:#06102A;
-    --surface:#0C1A3E;
-    --surface-lift:#132250;
-    --line:#1E3068;
-    --line-strong:#2B4490;
-    --coral:#D4896A;
-    --coral-bright:#E8A882;
-    --ink:#EBF0F8;
-    --ink-soft:#A8BAD8;
-    --muted:#5A7098;
-    --teal:#1A5C4E;
-    --teal-soft:#A2C8C0;
+    --deep:#EFF4F2;
+    --surface:#FFFFFF;
+    --surface-lift:#F6FAF8;
+    --line:#D2E0DA;
+    --line-strong:#B5CECA;
+    --coral:#C97A55;
+    --coral-bright:#E09168;
+    --ink:#0E2420;
+    --ink-soft:#3A5850;
+    --muted:#7A9990;
+    --teal:#1B6B58;
+    --teal-soft:#2D8A72;
+    --teal-pale:#E4F1EE;
     --r:4px;
   }
   *{box-sizing:border-box}
@@ -32,6 +33,7 @@
     font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
   }
+  main{background:var(--deep)}
   .wrap{max-width:1060px;margin:0 auto;padding:0 28px}
   .mono{font-family:"Space Mono",ui-monospace,monospace;}
   .eyebrow{
@@ -43,65 +45,66 @@
 
   /* ---------- statement header ---------- */
   .head{
-    background:var(--deep);color:var(--ink);position:relative;overflow:hidden;
+    background:linear-gradient(145deg, #1B6B58 0%, #0E4035 55%, #0A2E28 100%);
+    color:#EEF6F4;position:relative;overflow:hidden;
   }
   .head::before{
     content:"";position:absolute;inset:0;pointer-events:none;
     background:
-      radial-gradient(ellipse 80% 60% at 70% -20%, rgba(212,137,106,.18) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 80% at -10% 50%, rgba(26,92,78,.22) 0%, transparent 55%);
+      radial-gradient(ellipse 70% 80% at 90% -10%, rgba(201,122,85,.22) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 60% at -5% 80%, rgba(255,255,255,.06) 0%, transparent 50%);
   }
   .head::after{
     content:"";position:absolute;bottom:0;left:0;right:0;height:1px;
-    background:linear-gradient(90deg, transparent, var(--coral), transparent);
+    background:linear-gradient(90deg, transparent, rgba(201,122,85,.6), transparent);
   }
   .head .wrap{position:relative;z-index:2;padding-top:40px;padding-bottom:60px}
   .statement-bar{
     display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
-    padding-bottom:24px;border-bottom:1px solid var(--line);
+    padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.12);
     font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.18em;
-    text-transform:uppercase;color:var(--muted);
+    text-transform:uppercase;color:rgba(174,214,206,.7);
   }
-  .statement-bar b{color:var(--coral-bright);font-weight:400}
+  .statement-bar b{color:#E09168;font-weight:400}
   .head-grid{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:end;margin-top:44px}
   .name{
     font-family:"Cormorant Garamond",serif;font-weight:600;
     font-size:clamp(50px,9vw,100px);line-height:.92;letter-spacing:-.02em;
-    margin:0;color:var(--ink);
+    margin:0;color:#EEF6F4;
   }
   .name .ln{display:block;overflow:hidden}
   .name .ln span{display:block}
   .role{
-    margin-top:24px;font-size:17px;color:var(--ink-soft);max-width:44ch;font-weight:300;line-height:1.6;
+    margin-top:24px;font-size:17px;color:rgba(174,214,206,.85);max-width:44ch;font-weight:300;line-height:1.6;
   }
-  .role .accent{color:var(--coral-bright);font-weight:500}
+  .role .accent{color:#E09168;font-weight:500}
   .contact{
     margin-top:28px;display:flex;flex-wrap:wrap;gap:8px 28px;
-    font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.04em;color:var(--muted);
+    font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.04em;color:rgba(174,214,206,.65);
   }
   .contact a{text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s,color .2s}
-  .contact a:hover{color:var(--ink);border-color:var(--coral)}
-  .contact .k{color:var(--coral)}
+  .contact a:hover{color:#EEF6F4;border-color:#E09168}
+  .contact .k{color:#E09168}
   .portrait{width:196px;flex:none}
   .portrait .frame{
     position:relative;padding:0;
-    box-shadow:0 0 0 1px var(--line), 0 0 40px rgba(212,137,106,.15), 0 0 0 3px var(--surface);
+    box-shadow:0 0 0 1px rgba(255,255,255,.15), 0 8px 40px rgba(0,0,0,.3), 0 0 0 4px rgba(27,107,88,.4);
     border-radius:2px;overflow:hidden;
   }
   .portrait .frame::before{
     content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:linear-gradient(160deg, rgba(212,137,106,.12) 0%, transparent 40%, rgba(26,92,78,.10) 100%);
+    background:linear-gradient(160deg, rgba(201,122,85,.10) 0%, transparent 40%, rgba(14,64,53,.15) 100%);
   }
-  .portrait img{display:block;width:100%;height:auto;filter:saturate(1.08) contrast(1.04)}
+  .portrait img{display:block;width:100%;height:auto;filter:saturate(1.06) contrast(1.03)}
   .portrait .cap{
     margin-top:10px;font-family:"Space Mono",monospace;font-size:9.5px;
-    letter-spacing:.22em;text-transform:uppercase;color:var(--muted);text-align:center;
+    letter-spacing:.22em;text-transform:uppercase;color:rgba(174,214,206,.55);text-align:center;
   }
 
   /* ---------- generic section ---------- */
-  section{padding:68px 0;border-top:1px solid var(--line)}
+  section{padding:68px 0;border-top:1px solid var(--line);background:var(--deep)}
   .sec-head{display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:baseline;margin-bottom:38px}
-  .sec-head .idx{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.18em;color:var(--coral);text-transform:uppercase}
+  .sec-head .idx{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.18em;color:var(--teal);text-transform:uppercase}
   .sec-head h2{font-size:clamp(28px,3.8vw,42px);letter-spacing:-.01em;color:var(--ink)}
   .sec-head .lead{grid-column:2;color:var(--ink-soft);max-width:60ch;margin-top:10px;font-size:16.5px;font-weight:300}
 
@@ -112,7 +115,7 @@
   .summary-grid p{margin:0 0 16px;color:var(--ink-soft);font-weight:300}
   .summary-grid p:last-child{margin-bottom:0}
   .figures{display:flex;gap:44px;margin-top:32px;flex-wrap:wrap}
-  .fig .n{font-family:"Cormorant Garamond",serif;font-size:44px;font-weight:600;line-height:1;color:var(--coral)}
+  .fig .n{font-family:"Cormorant Garamond",serif;font-size:44px;font-weight:600;line-height:1;color:var(--teal)}
   .fig .l{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:8px}
 
   /* ---------- ledger ---------- */
@@ -121,7 +124,7 @@
   .ledger-label{
     display:flex;align-items:center;gap:14px;margin-bottom:8px;
     font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.22em;
-    text-transform:uppercase;color:var(--coral);
+    text-transform:uppercase;color:var(--teal);
   }
   .ledger-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line-strong),transparent)}
   .row{
@@ -130,54 +133,54 @@
   }
   .row:last-child{border-bottom:none}
   .row .when{font-family:"Space Mono",monospace;font-size:11.5px;color:var(--muted);padding-top:5px;letter-spacing:.02em;line-height:1.7}
-  .row .org{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:4px}
+  .row .org{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:4px}
   .row .title{font-family:"Cormorant Garamond",serif;font-size:25px;font-weight:600;line-height:1.15;margin:0 0 2px;color:var(--ink)}
   .row .promo{font-size:13px;color:var(--teal-soft);font-style:italic;margin-bottom:10px}
   .row .desc{color:var(--ink-soft);font-size:15px;max-width:64ch;margin:0;font-weight:300;line-height:1.7}
 
   /* ---------- deposits / recognition ---------- */
   .marquee{
-    background:linear-gradient(135deg, var(--surface-lift) 0%, var(--teal) 100%);
-    color:var(--ink);border-radius:var(--r);
+    background:linear-gradient(135deg, #1B6B58 0%, #0E4035 55%, #0A2E28 100%);
+    color:#EEF6F4;border-radius:var(--r);
     padding:32px 36px;display:flex;justify-content:space-between;align-items:center;
     gap:20px;flex-wrap:wrap;margin-bottom:16px;position:relative;overflow:hidden;
-    border:1px solid var(--line-strong);
+    border:none;box-shadow:0 4px 32px rgba(27,107,88,.18);
   }
   .marquee::after{content:"";position:absolute;inset:0;
-    background:radial-gradient(80% 120% at 100% 0, rgba(232,168,130,.20), transparent 55%);pointer-events:none}
-  .marquee .lbl{position:relative;font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--coral-bright)}
-  .marquee .big{position:relative;font-family:"Cormorant Garamond",serif;font-size:clamp(28px,4.2vw,44px);font-weight:600;line-height:1;margin:8px 0 0;color:var(--ink)}
+    background:radial-gradient(80% 120% at 100% 0, rgba(201,122,85,.25), transparent 55%);pointer-events:none}
+  .marquee .lbl{position:relative;font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#E09168}
+  .marquee .big{position:relative;font-family:"Cormorant Garamond",serif;font-size:clamp(28px,4.2vw,44px);font-weight:600;line-height:1;margin:8px 0 0;color:#EEF6F4}
   .marquee .credit{position:relative;text-align:right}
-  .marquee .credit .amt{font-family:"Cormorant Garamond",serif;font-size:clamp(32px,5vw,52px);font-weight:600;color:var(--coral-bright);line-height:1}
-  .marquee .credit .yr{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.18em;color:var(--teal-soft);margin-top:8px}
+  .marquee .credit .amt{font-family:"Cormorant Garamond",serif;font-size:clamp(32px,5vw,52px);font-weight:600;color:#E09168;line-height:1}
+  .marquee .credit .yr{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.18em;color:rgba(174,214,206,.7);margin-top:8px}
   .deposit{
     display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;
     padding:16px 4px;border-bottom:1px solid var(--line);
   }
   .deposit:last-child{border-bottom:none}
   .deposit .d-main{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-  .deposit .tick{color:var(--coral);font-family:"Space Mono",monospace;font-size:12px}
+  .deposit .tick{color:var(--teal);font-family:"Space Mono",monospace;font-size:12px}
   .deposit .d-title{font-size:16px;font-weight:500;color:var(--ink)}
   .deposit .d-sub{color:var(--muted);font-size:13.5px;font-weight:300}
   .deposit .when{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
 
   /* ---------- capabilities / langs / systems ---------- */
   .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px}
-  .col h3{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);margin:0 0 20px;font-weight:400}
+  .col h3{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin:0 0 20px;font-weight:400}
   .tags{display:flex;flex-wrap:wrap;gap:8px}
   .tag{
     border:1px solid var(--line-strong);border-radius:2px;padding:7px 14px;
     font-size:13.5px;color:var(--ink-soft);background:var(--surface);
     font-weight:300;transition:border-color .2s,color .2s;
   }
-  .tag:hover{border-color:var(--coral);color:var(--ink)}
+  .tag:hover{border-color:var(--teal);color:var(--teal)}
   .lang{display:flex;flex-direction:column;gap:14px}
   .lang .item{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:11px}
   .lang .item .nm{font-size:15px;font-weight:400}
   .lang .item .lv{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
   .sys{display:flex;flex-direction:column;gap:12px}
   .sys .s{font-family:"Space Mono",monospace;font-size:12.5px;color:var(--ink-soft);display:flex;gap:12px;align-items:center}
-  .sys .s::before{content:"›";color:var(--coral);font-size:16px}
+  .sys .s::before{content:"›";color:var(--teal);font-size:16px}
 
   /* ---------- education ---------- */
   .edu{display:grid;grid-template-columns:148px 1fr;gap:30px;align-items:baseline}
@@ -187,25 +190,26 @@
 
   /* ---------- references ---------- */
   .refs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-  .ref{background:var(--surface);padding:20px 22px;transition:background .2s}
-  .ref:hover{background:var(--surface-lift)}
+  .ref{background:var(--surface);padding:20px 22px;transition:background .2s,border-left .2s}
+  .ref:hover{background:var(--teal-pale);border-left:3px solid var(--teal)}
   .ref .nm{font-weight:600;font-size:15px;color:var(--ink)}
   .ref .ti{color:var(--muted);font-size:12.5px;margin-top:4px;line-height:1.5;font-weight:300}
   .ref-note{margin-top:16px;font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.07em;color:var(--muted)}
 
   /* ---------- footer ---------- */
   footer{
-    background:var(--surface);color:var(--muted);padding:48px 0;
-    border-top:1px solid var(--line);position:relative;overflow:hidden;
+    background:linear-gradient(145deg, #1B6B58 0%, #0E4035 100%);
+    color:rgba(174,214,206,.7);padding:48px 0;
+    border-top:none;position:relative;overflow:hidden;
   }
   footer::before{
     content:"";position:absolute;top:0;left:0;right:0;height:1px;
-    background:linear-gradient(90deg, transparent, var(--coral), transparent);
+    background:linear-gradient(90deg, transparent, rgba(201,122,85,.5), transparent);
   }
   .foot-grid{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-  .foot-grid .sig{font-family:"Cormorant Garamond",serif;font-size:26px;color:var(--ink);font-weight:600}
+  .foot-grid .sig{font-family:"Cormorant Garamond",serif;font-size:26px;color:#EEF6F4;font-weight:600}
   .foot-grid .meta{font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}
-  .foot-grid a{color:var(--coral-bright);text-decoration:none}
+  .foot-grid a{color:#E09168;text-decoration:none}
 
   /* ---------- reveal motion ---------- */
   .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
@@ -253,7 +257,7 @@
 
   /* ---------- noise grain overlay ---------- */
   body::after{
-    content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.028;
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.018;
     background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     background-size:128px 128px;
   }
@@ -296,10 +300,10 @@
   <section id="summary">
     <div class="wrap">
       <div class="summary-grid">
-        <p class="summary">Listening well, then following through — for over a decade.</p>
+        <p class="summary">Results-driven — across hospitality and banking, consistently.</p>
         <div>
-          <p>Stanley spent his early career mastering hospitality: managing front-office floors, resolving guest issues on the spot, and scheduling teams of up to sixteen across some of Johor's busiest hotels.</p>
-          <p>Since 2022 he has carried that same instinct for service into banking. Now a Senior Executive on Hong Leong Bank's personal-loan desk, he turns referrals and cold calls into closed business — landing in the bank's One Million Dollar Club and ranking among its top performers for personal loans and credit cards.</p>
+          <p>Stanley spent his early career mastering hospitality: managing front-office floors, resolving guest issues on the spot, and coaching teams of up to sixteen across some of Johor's busiest hotels.</p>
+          <p>Since 2022 he has brought that same discipline into banking. Now a Senior Executive on Hong Leong Bank's personal-loan desk, he is an award-winning sales performer — One Million Dollar Club member, top-ranked for personal loans and credit cards — known for operational discipline and consistent top results.</p>
           <div class="figures">
             <div class="fig"><div class="n">10<span style="font-size:24px">+</span></div><div class="l">Years in service</div></div>
             <div class="fig"><div class="n">$1M</div><div class="l">Club member · FY23/24</div></div>
@@ -335,7 +339,7 @@
           <div>
             <div class="org">Hong Leong Bank Berhad</div>
             <p class="title">Personal Loan Specialist</p>
-            <p class="desc">Generated leads through referrals, cold calls, marketing visits and telemarketing to meet sales targets. Promoted banking and financial products, evaluated credit applications carefully, and built the customer relationships that earn loyalty and repeat business — while holding to every statutory and internal policy.</p>
+            <p class="desc">Generated qualified leads through referrals, cold calls, marketing visits and telemarketing, consistently meeting and exceeding sales targets. Promoted banking and financial products, evaluated credit applications with care, and built lasting customer relationships that drove loyalty and repeat business — all within full statutory and internal compliance. Continuously sharpened product knowledge, selling skills, and market awareness.</p>
           </div>
         </div>
       </div>
@@ -349,7 +353,7 @@
             <div class="org">Trove Hotel, Johor</div>
             <p class="title">Senior Duty Manager</p>
             <p class="promo">Promoted from Duty Manager</p>
-            <p class="desc">Scheduled up to sixteen staff per shift, set departmental goals, and delivered the job training to meet them. Ran regular reviews of accounts, procedures and personnel to sharpen service quality and overall performance.</p>
+            <p class="desc">Promoted from Duty Manager in recognition of strong leadership and results. Managed scheduling and training for up to sixteen employees per shift, set departmental goals, and supported the team in hitting them. Resolved customer concerns with professionalism and product knowledge while leading initiatives to elevate service standards, quality, and efficiency. Conducted regular reviews of accounts, procedures, and personnel to optimise processes and boost performance.</p>
           </div>
         </div>
 
@@ -441,19 +445,19 @@
         </div>
         <div class="deposit">
           <div class="d-main"><span class="tick">+</span><span class="d-title">Coaching the Individual</span><span class="d-sub">Leadership recognition</span></div>
-          <div class="when">—</div>
+          <div class="when">Feb 2024</div>
         </div>
         <div class="deposit">
           <div class="d-main"><span class="tick">+</span><span class="d-title">All-Rounder Performer</span><span class="d-sub">Hong Leong Bank</span></div>
           <div class="when">Nov 2023</div>
         </div>
         <div class="deposit">
-          <div class="d-main"><span class="tick">+</span><span class="d-title">eTouch Receivers</span><span class="d-sub">Q4 recognition</span></div>
+          <div class="d-main"><span class="tick">+</span><span class="d-title">eTouch Receivers — Top 10</span><span class="d-sub">Hong Leong Bank</span></div>
           <div class="when">FY 22/23</div>
         </div>
         <div class="deposit">
           <div class="d-main"><span class="tick">+</span><span class="d-title">Best Employee of the Quarter</span><span class="d-sub">Hospitality</span></div>
-          <div class="when">May 2019</div>
+          <div class="when">Q1 2019</div>
         </div>
         <div class="deposit">
           <div class="d-main"><span class="tick">+</span><span class="d-title">Zero MC &amp; Medical Cost</span><span class="d-sub">Attendance &amp; reliability</span></div>
@@ -536,15 +540,15 @@
         <p class="lead">Leaders from across banking and hospitality who have worked alongside Stanley.</p>
       </div>
       <div class="refs rv">
-        <div class="ref"><div class="nm">Mr. Darryl Lim Chong Yan</div><div class="ti">Hong Leong Bank · Group Sales Manager</div><div class="ti">012-7187883</div></div>
-        <div class="ref"><div class="nm">Mr. Lenny Tan Ke Xin</div><div class="ti">Hong Leong Bank · Group Sales Manager</div><div class="ti">012-7203277</div></div>
-        <div class="ref"><div class="nm">Ms. Fiona Goh</div><div class="ti">Hong Leong Bank · Branch Manager</div><div class="ti">016-7337308</div></div>
-        <div class="ref"><div class="nm">Ms. Samantha Liew</div><div class="ti">Trove Hotel Johor · Former General Manager</div><div class="ti">016-7337308</div></div>
+        <div class="ref"><div class="nm">Ms. Sangeetha Amayappan</div><div class="ti">Ascott Hotel Johor · Cluster HR &amp; Training Manager</div><div class="ti">013-7030141</div></div>
+        <div class="ref"><div class="nm">Mr. Izahalil Rohaizad</div><div class="ti">Hard Rock Hotel Johor · Director of Rooms</div><div class="ti">016-7768473</div></div>
         <div class="ref"><div class="nm">Mr. Kumar Angamuthu</div><div class="ti">Grand Paragon Johor · Executive Asst. Manager</div><div class="ti">016-7337308</div></div>
-        <div class="ref"><div class="nm">Ms. Sangeetha Amayappan</div><div class="ti">Ascott Hotel Johor · Cluster HR &amp; Training Mgr</div><div class="ti">013-7030141</div></div>
+        <div class="ref"><div class="nm">Ms. Samantha Liew</div><div class="ti">Trove Hotel Johor · Former General Manager</div><div class="ti">016-7337308</div></div>
+        <div class="ref"><div class="nm">Ms. Fiona Goh</div><div class="ti">Hong Leong Bank · Branch Manager</div><div class="ti">016-7337308</div></div>
+        <div class="ref"><div class="nm">Mr. Darryl Lim Chong Yan</div><div class="ti">Hong Leong Bank · Group Sales Manager</div><div class="ti">012-7187883</div></div>
+        <div class="ref"><div class="nm">Ms. Lenny Tan Ke Xin</div><div class="ti">Hong Leong Bank · Sales Manager</div><div class="ti">012-7203277</div></div>
         <div class="ref"><div class="nm">Ms. Janet Chin</div><div class="ti">M-Suites Hotel · General Manager</div><div class="ti">016-7239003</div></div>
         <div class="ref"><div class="nm">Mr. Paul Cheah</div><div class="ti">Berjaya Hills Hotel · Area General Manager</div><div class="ti">018-2330001</div></div>
-        <div class="ref"><div class="nm">Mr. Izahalil Rohaizad</div><div class="ti">Hard Rock Hotel Johor · Director of Rooms</div><div class="ti">016-7768473</div></div>
       </div>
       <p class="ref-note">// Contact details listed above. Further references available on request.</p>
     </div>
